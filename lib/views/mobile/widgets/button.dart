@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+// import 'package:project_dicoding/models/model.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/auth/sign_in.dart';
-import 'package:project_dicoding/views/auth/sign_up.dart';
-import 'package:project_dicoding/views/pages/home.dart';
-import 'package:project_dicoding/views/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
+import 'package:project_dicoding/views/mobile/auth/sign_up.dart';
+import 'package:project_dicoding/views/mobile/pages/home.dart';
+// import 'package:project_dicoding/views/pages/home.dart';
+import 'package:project_dicoding/views/mobile/widgets/customText.dart';
 
 class HomeButton extends StatelessWidget {
   final Function()? onPressed;
@@ -32,56 +34,6 @@ class HomeButton extends StatelessWidget {
       child: TextButton(
         onPressed: onPressed,
         child: child,
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required TextEditingController userNameController,
-    required this.text,
-  }) : _userNameController = userNameController;
-
-  final TextEditingController _userNameController;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: secondColor,
-      ),
-      child: TextButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Home(
-                name: _userNameController.text,
-              ),
-            ),
-          );
-          // showDialog(
-          //     context: context,
-          //     builder: (context) {
-          //       return AlertDialog(
-          //         content:
-          //             Text('Hello, ${_userNameController.text}'),
-          //       );
-          //     });
-        },
-        child: WhiteText(
-          text: text,
-          styleForText: StyleForText(
-            medium,
-            14.0,
-          ),
-        ),
       ),
     );
   }
@@ -118,6 +70,64 @@ class GoogleButton extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({
+    super.key,
+    required TextEditingController userNameController,
+    required this.text,
+  }) : _userNameController = userNameController;
+
+  final TextEditingController _userNameController;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 40,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: secondColor,
+      ),
+      child: TextButton(
+        onPressed: () {
+          if (text == 'Login') {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Home(
+                  name: _userNameController.text,
+                ),
+              ),
+            );
+          } else {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SignInPage(),
+              ),
+            );
+          }
+          // showDialog(
+          //     context: context,
+          //     builder: (context) {
+          //       return AlertDialog(
+          //         content:
+          //             Text('Hello, ${_userNameController.text}'),
+          //       );
+          //     });
+        },
+        child: WhiteText(
+          text: text,
+          styleForText: StyleForText(
+            medium,
+            14.0,
+          ),
         ),
       ),
     );

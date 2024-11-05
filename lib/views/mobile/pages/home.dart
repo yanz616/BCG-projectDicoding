@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:project_dicoding/models/model.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/widgets/customText.dart';
-import 'package:project_dicoding/views/widgets/customTextField.dart';
+import 'package:project_dicoding/views/mobile/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
 
 class Home extends StatelessWidget {
   final List<String> items = [
@@ -14,9 +15,12 @@ class Home extends StatelessWidget {
     'Mataram',
   ];
   final String name;
+  final CarausolItem? data;
+
   Home({
     super.key,
     required this.name,
+    this.data,
   });
 
   // int _selectedIndex = 0;
@@ -73,6 +77,7 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
+
             const Gap(14),
             SizedBox(
               height: 184,
@@ -84,7 +89,7 @@ class Home extends StatelessWidget {
                   aspectRatio: 16 / 9,
                   autoPlayInterval: const Duration(seconds: 10),
                 ),
-                items: [1, 2, 3, 4, 5].map((i) {
+                items: [].map((item) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
@@ -103,6 +108,13 @@ class Home extends StatelessWidget {
                               offset: const Offset(3, 3),
                             ),
                           ],
+                        ),
+                        child: Text(
+                          item.toString(),
+                          style: whiteTextStyle.copyWith(
+                            fontWeight: bold,
+                            fontSize: 20,
+                          ),
                         ),
                       );
                     },

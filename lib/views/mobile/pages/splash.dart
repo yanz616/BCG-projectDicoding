@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_dicoding/views/auth/sign_in.dart';
+import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/theme/theme.dart';
 
 class SplashPage extends StatefulWidget {

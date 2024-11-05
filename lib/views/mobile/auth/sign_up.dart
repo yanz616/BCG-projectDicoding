@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/widgets/button.dart';
-import 'package:project_dicoding/views/widgets/customText.dart';
-import 'package:project_dicoding/views/widgets/customTextField.dart';
+import 'package:project_dicoding/views/mobile/widgets/button.dart';
+import 'package:project_dicoding/views/mobile/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -123,7 +123,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   const Gap(14),
                   CustomButton(
                     userNameController: _userNameController,
-                    text: 'Daftar',
+                    text: 'Register',
                   ),
                   const Gap(14),
                   Row(

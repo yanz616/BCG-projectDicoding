@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/widgets/button.dart';
-import 'package:project_dicoding/views/widgets/customText.dart';
-import 'package:project_dicoding/views/widgets/customTextField.dart';
+import 'package:project_dicoding/views/mobile/widgets/button.dart';
+import 'package:project_dicoding/views/mobile/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -21,7 +21,7 @@ class _SignInPageState extends State<SignInPage> {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 100,
+          top: 80,
         ),
         child: Column(
           children: <Widget>[
@@ -98,7 +98,7 @@ class _SignInPageState extends State<SignInPage> {
                   const Gap(14),
                   CustomButton(
                     userNameController: _userNameController,
-                    text: 'Masuk',
+                    text: 'Login',
                   ),
                   const Gap(14),
                   Row(
