@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/theme/theme.dart';
+import 'package:project_dicoding/views/mobile/widgets/customText.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -15,12 +17,12 @@ class _SplashPageState extends State<SplashPage> {
     // TODO: implement initState
     super.initState();
     Future.delayed(
-      const Duration(seconds: 3),
+      const Duration(seconds: 10),
       () {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const SignInPage(),
+            builder: (BuildContext context) => const SignInPage(),
           ),
         );
       }, //onpressed
@@ -30,23 +32,32 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryColor,
       body: Center(
-        child: SizedBox(
-          height: 100,
-          width: 100,
-          child: Column(
-            children: [
-              Image.asset('assets/icons/logoGuide.png'),
-              Text(
-                'My Guide',
-                style: whiteTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: semiBold,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/icons/BCG-logo.png',
+            ),
+            const Gap(4),
+            DScriptText(
+              text: 'BCG',
+              styleForText: StyleForText(
+                bold,
+                40,
               ),
-            ],
-          ),
+              color: whiteColor,
+            ),
+            const Gap(4),
+            DScriptText(
+              text: 'Bussines Consultation Group',
+              styleForText: StyleForText(
+                semiBold,
+                20,
+              ),
+              color: whiteColor,
+            ),
+          ],
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:project_dicoding/theme/theme.dart';
 
 class StyleForText {
@@ -9,6 +10,30 @@ class StyleForText {
     this.fontWeight,
     this.fontSize,
   );
+}
+
+class DScriptText extends StatelessWidget {
+  final String text;
+  final StyleForText styleForText;
+  final Color? color;
+  const DScriptText({
+    super.key,
+    required this.text,
+    required this.styleForText,
+    this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.dancingScript(
+        fontWeight: styleForText.fontWeight,
+        fontSize: styleForText.fontSize,
+        color: color,
+      ),
+    );
+  }
 }
 
 class WhiteText extends StatelessWidget {

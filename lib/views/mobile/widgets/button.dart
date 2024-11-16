@@ -4,8 +4,6 @@ import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_up.dart';
-import 'package:project_dicoding/views/mobile/pages/home.dart';
-// import 'package:project_dicoding/views/pages/home.dart';
 import 'package:project_dicoding/views/mobile/widgets/customText.dart';
 
 class HomeButton extends StatelessWidget {
@@ -76,64 +74,6 @@ class GoogleButton extends StatelessWidget {
   }
 }
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    required TextEditingController userNameController,
-    required this.text,
-  }) : _userNameController = userNameController;
-
-  final TextEditingController _userNameController;
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 40,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: secondColor,
-      ),
-      child: TextButton(
-        onPressed: () {
-          if (text == 'Login') {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Home(
-                  name: _userNameController.text,
-                ),
-              ),
-            );
-          } else {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const SignInPage(),
-              ),
-            );
-          }
-          // showDialog(
-          //     context: context,
-          //     builder: (context) {
-          //       return AlertDialog(
-          //         content:
-          //             Text('Hello, ${_userNameController.text}'),
-          //       );
-          //     });
-        },
-        child: WhiteText(
-          text: text,
-          styleForText: StyleForText(
-            medium,
-            14.0,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class RouteValidate extends StatelessWidget {
   const RouteValidate({
     super.key,
@@ -148,7 +88,7 @@ class RouteValidate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        bottom: 50,
+        bottom: 60,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/pages/splash.dart';
-// import 'package:project_dicoding/views/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My Guide Lombok',
+      title: 'Lombok Guide',
       theme: ThemeData(
         scaffoldBackgroundColor: primaryColor,
       ),

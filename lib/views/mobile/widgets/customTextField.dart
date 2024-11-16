@@ -31,11 +31,12 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
+      child: SizedBox(
         width: 400,
         child: TextField(
           obscureText: obScure,
           controller: controller,
+          onTapOutside: (event) => context,
           decoration: InputDecoration(
             prefixIcon: prefixIcon,
             fillColor: color,

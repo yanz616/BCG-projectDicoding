@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
+import 'package:project_dicoding/views/mobile/pages/home.dart';
 import 'package:project_dicoding/views/mobile/widgets/button.dart';
 import 'package:project_dicoding/views/mobile/widgets/customText.dart';
 import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
@@ -21,13 +22,15 @@ class _SignInPageState extends State<SignInPage> {
       resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 80,
+          top: 120,
         ),
         child: Column(
           children: <Widget>[
             Image.asset(
-              'assets/icons/logoGuide.png',
+              'assets/icons/BCG-logo.png',
+              width: 80,
             ),
+            const Gap(10),
             WhiteText(
               text: 'Login',
               styleForText: StyleForText(
@@ -35,7 +38,7 @@ class _SignInPageState extends State<SignInPage> {
                 24.0,
               ),
             ),
-            const Gap(30),
+            const Gap(80),
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 30,
@@ -95,38 +98,34 @@ class _SignInPageState extends State<SignInPage> {
                     color: whiteColor,
                     radius: 12.0,
                   ),
-                  const Gap(14),
-                  CustomButton(
-                    userNameController: _userNameController,
-                    text: 'Login',
-                  ),
-                  const Gap(14),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: 2,
-                        width: 110,
-                        color: greyColor,
-                      ),
-                      const Gap(22),
-                      GreyText(
-                        text: 'Atau',
+                  const Gap(40),
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: secondColor,
+                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(
+                              name: _userNameController.text,
+                            ),
+                          ),
+                        );
+                      },
+                      child: WhiteText(
+                        text: 'Login',
                         styleForText: StyleForText(
                           medium,
-                          12.0,
+                          14.0,
                         ),
                       ),
-                      const Gap(22),
-                      Container(
-                        height: 2,
-                        width: 110,
-                        color: greyColor,
-                      )
-                    ],
+                    ),
                   ),
-                  const Gap(14),
-                  const GoogleButton(),
                 ],
               ),
             ),

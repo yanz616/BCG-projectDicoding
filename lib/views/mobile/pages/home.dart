@@ -7,23 +7,11 @@ import 'package:project_dicoding/views/mobile/widgets/customText.dart';
 import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
 
 class Home extends StatelessWidget {
-  final List<String> items = [
-    'Lombok Timur',
-    'Lombok Barat',
-    'Lombok Tengah',
-    'Lombok Utara',
-    'Mataram',
-  ];
   final String name;
-  final CarausolItem? data;
-
-  Home({
+  const Home({
     super.key,
     required this.name,
-    this.data,
   });
-
-  // int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +33,7 @@ class Home extends StatelessWidget {
                   Row(
                     children: [
                       const CircleAvatar(
-                        backgroundColor: redColor,
+                        backgroundColor: Colors.blue,
                       ),
                       const Gap(6),
                       BlackText(
@@ -67,7 +55,7 @@ class Home extends StatelessWidget {
                     vertikal: 14,
                     color: whiteGrey,
                     filled: true,
-                    hintText: 'Search Your Guide',
+                    hintText: 'Search Your Bussines Consultation',
                     hintStyle: StyleForText(
                       regular,
                       12,
@@ -77,124 +65,176 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-
             const Gap(14),
-            SizedBox(
-              height: 184,
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  height: 140.0,
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  aspectRatio: 16 / 9,
-                  autoPlayInterval: const Duration(seconds: 10),
-                ),
-                items: [].map((item) {
-                  return Builder(
-                    builder: (BuildContext context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                        ),
+            const BannerSlider(),
+            // SizedBox(
+            //   height: 120,
+            //   child: Container(
+            //     height: 80,
+            //     width: 100,
+            //     decoration: BoxDecoration(color: primaryColor, boxShadow: [
+            //       BoxShadow(
+            //         color: Colors.black.withOpacity(0.3),
+            //         spreadRadius: 3,
+            //         blurRadius: 2,
+            //         offset: const Offset(3, 9),
+            //       ),
+            //     ]),
+            //   ),
+            // ),
+            const Gap(20),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 22,
+              ),
+              child: Column(
+                children: MyData.data_2.map(
+                  (item) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 8,
+                      ),
+                      child: Container(
+                        height: 130,
+                        width: double.infinity,
                         decoration: BoxDecoration(
-                          color: primaryColor,
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                          color: whiteColor,
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.3),
                               spreadRadius: 3,
-                              blurRadius: 6,
-                              offset: const Offset(3, 3),
+                              blurRadius: 4,
+                              offset: const Offset(6, 4),
                             ),
                           ],
                         ),
-                        child: Text(
-                          item.toString(),
-                          style: whiteTextStyle.copyWith(
-                            fontWeight: bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                }).toList(),
+                      ),
+                    );
+                  },
+                ).toList(),
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-            const Gap(10),
-            // SingleChildScrollView(
-            //   scrollDirection: Axis.horizontal,
-            //   child: Row(
-            //       children: items.map((item) {
-            //     return Padding(
-            //       padding: EdgeInsets.only(
-            //         left: item == 0 ? 10 : 20,
-            //       ),
-            //       child: HomeButton(
-            //         color: primaryColor,
-            //         onPressed: () {
-            //           if (item == 'Lombok Timur' && item == true) {
-            //             Navigator.push(
-            //               context,
-            //               MaterialPageRoute(
-            //                 builder: (context) => const SignInPage(),
-            //               ),
-            //             );
-            //           } else {
-            //             SizedBox.shrink();
-            //           }
-            //         },
-            //         child: Text(
-            //           item,
-            //           style: TextStyle(
+class BannerSlider extends StatelessWidget {
+  const BannerSlider({
+    super.key,
+  });
 
-            //           ),
-            //         ),
-            //       ),
-            //     );
-            //   }).toList()),
-            // ),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      items: List.generate(
+        MyData.data.length,
+        (index) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 18,
+              vertical: 20,
+            ),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    spreadRadius: 3,
+                    blurRadius: 6,
+                    offset: const Offset(6, 4),
+                  ),
+                ],
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
                 children: [
-                  GreenText(
-                    text: 'Popular Guide',
-                    styleForText: StyleForText(
-                      medium,
-                      16,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 20,
+                      top: 24,
+                    ),
+                    child: Image.asset(
+                      MyData.data[index].image,
                     ),
                   ),
-                  Column(
-                    children: items.map((item) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          top: item == item[0] ? 20 : 10,
-                        ),
-                        child: Container(
-                          height: 150,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            color: whiteGrey,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: blackColor,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 46,
+                      left: 10,
+                    ),
+                    child: Container(
+                      constraints: const BoxConstraints(maxWidth: 230),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          WhiteText(
+                            text: MyData.data[index].word,
+                            styleForText: StyleForText(
+                              semiBold,
+                              18,
                             ),
                           ),
-                        ),
-                      );
-                    }).toList(),
-                  )
+                          const Gap(8),
+                          WhiteText(
+                            text: MyData.data[index].name,
+                            styleForText: StyleForText(
+                              medium,
+                              14,
+                            ),
+                          ),
+                          WhiteText(
+                            text: MyData.data[index].jobDesk,
+                            styleForText: StyleForText(
+                              regular,
+                              10,
+                            ),
+                          ),
+                          const Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              bottom: 4,
+                            ),
+                            child: DScriptText(
+                              text: 'Bussiness Consultation Group',
+                              styleForText: StyleForText(
+                                medium,
+                                12,
+                              ),
+                              color: orangeColor,
+                            ),
+                          ),
+                          //   Padding(
+                          //     padding: const EdgeInsets.only(
+                          //       left: 20,
+                          //     ),
+                          //     child:
+                          //     ),
+                          //   ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-            const Gap(20),
-          ],
+          );
+        },
+      ),
+      options: CarouselOptions(
+        autoPlay: true,
+        viewportFraction: 1,
+        enlargeCenterPage: true,
+        autoPlayInterval: const Duration(
+          seconds: 5,
         ),
       ),
     );
