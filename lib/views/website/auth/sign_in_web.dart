@@ -1,58 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:intl/intl.dart';
 import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
+import 'package:project_dicoding/views/mobile/pages/home.dart';
 import 'package:project_dicoding/views/mobile/widgets/button.dart';
 import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
 import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
-// import 'package:project_dicoding/shared/date_time.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
 
-  @override
-  State<SignUpPage> createState() => _SignUpPageState();
-}
-
-class _SignUpPageState extends State<SignUpPage> {
-  void register(
-    BuildContext ctx,
-    String nama,
-    String email,
-    String pass,
-  ) async {
-    if (nama.isEmpty && email.isEmpty && pass.isEmpty) {
-      CustomSnackbar.showToast(ctx, 'Cannot be reach null');
+  void login(BuildContext ctx, String email, String pass) async {
+    if (email.isEmpty && pass.isEmpty) {
+      CustomSnackbar.showToast(ctx, 'Inputan masih kosong!');
     } else {
-      if (nama.isNotEmpty && email.isNotEmpty && pass.isNotEmpty) {
-        SharedPreUtils.saveName(nama);
-        SharedPreUtils.saveEmail(email);
-        SharedPreUtils.savePass(pass);
-        SharedPreUtils.saveTanggalGabung(
-            DateFormat('dd-MM-yyyy').format(DateTime.now()));
-
-        CustomSnackbar.showToast(ctx, 'Berhasil simpan!,');
-        Navigator.push(
-          context,
+      String? pEmail = await SharedPreUtils.readEmail();
+      String? pPassword = await SharedPreUtils.readPass();
+      if (email == pEmail && pass == pPassword) {
+        // ignore: use_build_context_synchronously
+        CustomSnackbar.showToast(ctx, 'Login Berhasil');
+        Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
+          ctx,
           MaterialPageRoute(
-            builder: (context) => const SignInPage(),
+            builder: (context) => const Home(),
           ),
         );
       } else {
-        CustomSnackbar.showToast(ctx, 'You should make this form full');
+        // print(pEmail);
+        // print(pPassword);
+        // ignore: use_build_context_synchronously
+        CustomSnackbar.showToast(ctx, 'Login Gagal!');
       }
     }
   }
 
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -67,10 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const Gap(10),
             WhiteText(
-              text: 'Register',
+              text: 'Login',
               styleForText: StyleForText(
                 semiBold,
-                24,
+                24.0,
               ),
             ),
             const Gap(80),
@@ -82,54 +69,36 @@ class _SignUpPageState extends State<SignUpPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   WhiteText(
-                    text: 'Username',
+                    text: 'Email',
                     styleForText: StyleForText(
                       medium,
-                      16,
+                      16.0,
                     ),
                   ),
                   const Gap(4),
                   CustomTextField(
-                    controller: _userNameController,
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: primaryColor,
-                    ),
-                    hintText: 'Enter Your Name',
-                    hintStyle: StyleForText(
-                      regular,
-                      12,
-                    ),
-                  ),
-                  const Gap(14),
-                  WhiteText(
-                    text: 'Email Address',
-                    styleForText: StyleForText(
-                      medium,
-                      16,
-                    ),
-                  ),
-                  const Gap(4),
-                  CustomTextField(
-                    controller: _emailController,
+                    controller: emailController,
                     prefixIcon: const Icon(
                       Icons.email_outlined,
                       color: primaryColor,
                     ),
-                    hintText: 'Enter Your Email Address',
-                    hintStyle: StyleForText(regular, 12),
+                    hintText: 'Enter Your Email',
+                    hintStyle: StyleForText(
+                      regular,
+                      12.0,
+                    ),
                   ),
                   const Gap(14),
                   WhiteText(
                     text: 'Password',
                     styleForText: StyleForText(
                       medium,
-                      12,
+                      16.0,
                     ),
                   ),
                   const Gap(4),
                   CustomTextField(
-                    controller: _passController,
+                    controller: passController,
                     obScure: true,
                     prefixIcon: const Icon(
                       Icons.key,
@@ -138,10 +107,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     hintText: 'Enter Your Password',
                     hintStyle: StyleForText(
                       regular,
-                      12,
+                      12.0,
                     ),
                   ),
-                  const Gap(30),
+                  const Gap(40),
                   Container(
                     height: 40,
                     width: double.infinity,
@@ -151,15 +120,14 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        register(
+                        login(
                           context,
-                          _userNameController.text,
-                          _emailController.text,
-                          _passController.text,
+                          emailController.text,
+                          passController.text,
                         );
                       },
                       child: WhiteText(
-                        text: 'register',
+                        text: 'Login',
                         styleForText: StyleForText(
                           medium,
                           14.0,
@@ -172,9 +140,9 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
             const Spacer(),
             const RouteValidate(
-              text: 'Sudah Punya Akun?',
-              textValidate: 'Login',
-            ),
+              text: 'Belum Punya Akun?',
+              textValidate: 'Register',
+            )
           ],
         ),
       ),

@@ -120,3 +120,24 @@ class BlackText extends StatelessWidget {
     );
   }
 }
+
+class DarkGreenText extends StatelessWidget {
+  final String text;
+  final StyleForText styleForText;
+  const DarkGreenText({
+    super.key,
+    required this.text,
+    required this.styleForText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: primaryTextStyle.copyWith(
+        fontSize: styleForText.fontSize,
+        fontWeight: styleForText.fontWeight,
+      ),
+    );
+  }
+}

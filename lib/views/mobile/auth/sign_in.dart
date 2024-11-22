@@ -1,23 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+// import 'package:project_dicoding/shared/date_time.dart';
+import 'package:project_dicoding/shared/shared_preferences.dart';
+import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/pages/home.dart';
 import 'package:project_dicoding/views/mobile/widgets/button.dart';
-import 'package:project_dicoding/views/mobile/widgets/customText.dart';
-import 'package:project_dicoding/views/mobile/widgets/customTextField.dart';
+import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
+import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
 
-class SignInPage extends StatefulWidget {
+class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
 
-  @override
-  State<SignInPage> createState() => _SignInPageState();
-}
+  void login(BuildContext ctx, String email, String pass) async {
+    if (email.isEmpty && pass.isEmpty) {
+      CustomSnackbar.showToast(ctx, 'Inputan masih kosong!');
+    } else {
+      String? pEmail = await SharedPreUtils.readEmail();
+      String? pPassword = await SharedPreUtils.readPass();
+      if (email == pEmail && pass == pPassword) {
+        // ignore: use_build_context_synchronously
+        CustomSnackbar.showToast(ctx, 'Login Berhasil');
+        Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
+          ctx,
+          MaterialPageRoute(
+            builder: (context) => const Home(),
+          ),
+        );
+      } else {
+        // print(pEmail);
+        // print(pPassword);
+        // ignore: use_build_context_synchronously
+        CustomSnackbar.showToast(ctx, 'Login Gagal!');
+      }
+    }
+  }
 
-class _SignInPageState extends State<SignInPage> {
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _passcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
@@ -47,7 +70,7 @@ class _SignInPageState extends State<SignInPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   WhiteText(
-                    text: 'Username',
+                    text: 'Email',
                     styleForText: StyleForText(
                       medium,
                       16.0,
@@ -55,21 +78,16 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const Gap(4),
                   CustomTextField(
-                    controller: _userNameController,
+                    controller: emailController,
                     prefixIcon: const Icon(
-                      Icons.person,
+                      Icons.email_outlined,
                       color: primaryColor,
                     ),
-                    horizontal: 16.0,
-                    vertikal: 0.0,
-                    hintText: 'Enter Your Name',
+                    hintText: 'Enter Your Email',
                     hintStyle: StyleForText(
                       regular,
                       12.0,
                     ),
-                    filled: true,
-                    color: whiteColor,
-                    radius: 12.0,
                   ),
                   const Gap(14),
                   WhiteText(
@@ -81,22 +99,17 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   const Gap(4),
                   CustomTextField(
-                    controller: _passcontroller,
+                    controller: passController,
                     obScure: true,
                     prefixIcon: const Icon(
                       Icons.key,
                       color: primaryColor,
                     ),
-                    horizontal: 16.0,
-                    vertikal: 0.0,
                     hintText: 'Enter Your Password',
                     hintStyle: StyleForText(
                       regular,
                       12.0,
                     ),
-                    filled: true,
-                    color: whiteColor,
-                    radius: 12.0,
                   ),
                   const Gap(40),
                   Container(
@@ -108,14 +121,12 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        login(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => Home(
-                              name: _userNameController.text,
-                            ),
-                          ),
+                          emailController.text,
+                          passController.text,
                         );
+                        // print('TOmbol Ditekan');
                       },
                       child: WhiteText(
                         text: 'Login',

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Lombok Guide',
+      title: 'Bussines Consultation Group',
       theme: ThemeData(
         scaffoldBackgroundColor: primaryColor,
       ),

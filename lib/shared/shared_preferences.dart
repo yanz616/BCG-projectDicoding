@@ -7,28 +7,38 @@ class SharedPreUtils {
     pref.setString('Username', name);
   }
 
-  static readName(String name) async {
+  static readName() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    return pref.getString('Username');
+    return pref.getString('Username') ?? '';
   }
 
   static saveEmail(String email) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('Email Address', email);
+    pref.setString('Email', email);
   }
 
-  static readEmail(String email) async {
+  static readEmail() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    return pref.getString('Email Addres');
+    return pref.getString('Email') ?? '';
   }
 
-  static savePass(String password) async {
+  static savePass(String pass) async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('Password', password);
+    pref.setString('Password', pass);
   }
 
-  static readPass(String password) async {
+  static readPass() async {
     final SharedPreferences pref = await SharedPreferences.getInstance();
-    return pref.getString('Password');
+    return pref.getString('Password') ?? '';
+  }
+
+  static saveTanggalGabung(String tanggalGabung) async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString('tanggal', tanggalGabung);
+  }
+
+  static readTanggalGabung() async {
+    final SharedPreferences pref = await SharedPreferences.getInstance();
+    return pref.getString('tanggal') ?? '';
   }
 }

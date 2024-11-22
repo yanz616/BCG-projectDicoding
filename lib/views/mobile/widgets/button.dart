@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_up.dart';
-import 'package:project_dicoding/views/mobile/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
 
 class HomeButton extends StatelessWidget {
   final Function()? onPressed;
@@ -135,5 +135,46 @@ class RouteValidate extends StatelessWidget {
         ),
       );
     }
+  }
+}
+
+class TitleProfile extends StatelessWidget {
+  final String title;
+  const TitleProfile({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: whiteGrey,
+      ),
+      child: Row(
+        children: [
+          const Gap(6),
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+            ),
+          ),
+          const Gap(60),
+          BlackText(
+            text: title,
+            styleForText: StyleForText(
+              semiBold,
+              18,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

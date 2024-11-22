@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/widgets/customText.dart';
+import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -14,12 +14,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(
       const Duration(seconds: 10),
       () {
         Navigator.pushReplacement(
+          // ignore: use_build_context_synchronously
           context,
           MaterialPageRoute(
             builder: (BuildContext context) => const SignInPage(),
