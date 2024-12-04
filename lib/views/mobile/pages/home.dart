@@ -138,7 +138,7 @@ class BannerSlider extends StatelessWidget {
         (index) {
           return Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 18,
+              horizontal: 16,
               vertical: 20,
             ),
             child: Container(
@@ -159,7 +159,7 @@ class BannerSlider extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 20,
+                      left: 14,
                       top: 24,
                     ),
                     child: Image.asset(
@@ -168,35 +168,35 @@ class BannerSlider extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 46,
+                      top: 40,
                       left: 10,
                     ),
                     child: Container(
-                      constraints: const BoxConstraints(maxWidth: 230),
+                      constraints: const BoxConstraints(maxWidth: 180),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          WhiteText(
+                          AutoSizeWhiteText(
                             text: MyData.data[index].word,
-                            styleForText: StyleForText(
-                              semiBold,
-                              18,
-                            ),
+                            fontWeight: semiBold,
+                            maxSize: 20,
+                            minSize: 14,
+                            maxLines: 2,
                           ),
                           const Gap(8),
-                          WhiteText(
+                          AutoSizeWhiteText(
                             text: MyData.data[index].name,
-                            styleForText: StyleForText(
-                              medium,
-                              14,
-                            ),
+                            fontWeight: medium,
+                            maxSize: 14,
+                            maxLines: 2,
+                            minSize: 10,
                           ),
-                          WhiteText(
+                          AutoSizeWhiteText(
                             text: MyData.data[index].jobDesk,
-                            styleForText: StyleForText(
-                              regular,
-                              10,
-                            ),
+                            fontWeight: regular,
+                            maxSize: 14,
+                            maxLines: 1,
+                            minSize: 10,
                           ),
                           const Spacer(),
                           Padding(
@@ -208,7 +208,7 @@ class BannerSlider extends StatelessWidget {
                               text: 'Bussiness Consultation Group',
                               styleForText: StyleForText(
                                 medium,
-                                12,
+                                MediaQuery.sizeOf(context).width * 0.03,
                               ),
                               color: orangeColor,
                             ),
@@ -224,11 +224,12 @@ class BannerSlider extends StatelessWidget {
         },
       ),
       options: CarouselOptions(
-        autoPlay: true,
+        // autoPlay: true,
         viewportFraction: 1,
         enlargeCenterPage: true,
+        aspectRatio: 8.6 / 5.5,
         autoPlayInterval: const Duration(
-          seconds: 5,
+          seconds: 3,
         ),
       ),
     );
@@ -255,7 +256,6 @@ class DaftarConsultan extends StatelessWidget {
               ),
               child: Container(
                 width: double.infinity,
-                // padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     20,
@@ -272,7 +272,7 @@ class DaftarConsultan extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
+                    horizontal: 14,
                     vertical: 20,
                   ),
                   child: Row(
@@ -292,89 +292,89 @@ class DaftarConsultan extends StatelessWidget {
                         ),
                       ),
                       const Gap(16),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 6,
-                              horizontal: 16,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: whiteGrey,
-                              border: Border.all(
-                                color: const Color(0xffCDE1DF),
-                                width: 1,
-                              ),
-                            ),
-                            child: Center(
-                              child: DarkGreenText(
-                                text: 'Prefosional Consultan',
-                                styleForText: StyleForText(
-                                  semiBold,
-                                  10,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const Gap(6),
-                          SizedBox(
-                            width: 200,
-                            child: BlackText(
-                              text: item.name,
-                              styleForText: StyleForText(
-                                semiBold,
-                                18,
-                              ),
-                            ),
-                          ),
-                          const Gap(2),
-                          GreyText(
-                            text: item.jobDesk,
-                            styleForText: StyleForText(
-                              semiBold,
-                              12,
-                            ),
-                          ),
-                          const Gap(10),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => DetailPage(
-                                    name: item.name,
-                                    jobDesk: item.jobDesk,
-                                    desk: item.desk,
-                                    image: item.image,
-                                    companyImg: item.company.img,
-                                    companyDetail: item.company.detail,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Container(
-                              width: 210,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
                               padding: const EdgeInsets.symmetric(
-                                vertical: 10,
+                                vertical: 6,
+                                horizontal: 10,
                               ),
+                              margin: const EdgeInsets.only(right: 50),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
-                                color: primaryColor,
+                                color: whiteGrey,
+                                border: Border.all(
+                                  color: const Color(0xffCDE1DF),
+                                  width: 1,
+                                ),
                               ),
                               child: Center(
-                                child: WhiteText(
-                                  text: 'Detail',
+                                child: DarkGreenText(
+                                  text: 'Prefosional Consultan',
                                   styleForText: StyleForText(
-                                    bold,
-                                    14,
+                                    semiBold,
+                                    10,
                                   ),
                                 ),
                               ),
                             ),
-                          )
-                        ],
+                            const Gap(6),
+                            AutoSizeBlackText(
+                              text: item.name,
+                              fontWeight: semiBold,
+                              maxLines: 1,
+                              minSize: 10,
+                              maxSize: 16,
+                            ),
+                            const Gap(2),
+                            AutoSizeGreyText(
+                              text: item.jobDesk,
+                              fontWeight: medium,
+                              maxLine: 1,
+                              minSize: 8,
+                              maxSize: 14,
+                            ),
+                            const Gap(10),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => DetailPage(
+                                      name: item.name,
+                                      jobDesk: item.jobDesk,
+                                      desk: item.desk,
+                                      image: item.image,
+                                      companyImg: item.company.img,
+                                      companyDetail: item.company.detail,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                width: 210,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 10,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: primaryColor,
+                                ),
+                                child: Center(
+                                  child: WhiteText(
+                                    text: 'Detail',
+                                    styleForText: StyleForText(
+                                      bold,
+                                      14,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),

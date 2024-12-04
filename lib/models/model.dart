@@ -29,8 +29,8 @@ class MyData {
   static var data = [
     ItemData(
       image: 'assets/images/co.png',
-      name: 'Dr. Hamdi Sopian,M.E',
-      word: 'Let Me Help Your Bussiness uhsabdg',
+      name: 'Dr. Hamdi Sopian Hadi,M.E',
+      word: 'Let Me Help Your Bussiness uhsabdbJVCsagdyaudgetftvcatydyafdrqfg',
       jobDesk: 'CEO Bussines Consultation Group',
       desk: '',
       company: Company(
@@ -64,8 +64,8 @@ class MyData {
   static var data_2 = [
     ItemData(
       image: 'assets/images/co.png',
-      name: 'Dr.Hamdi Sopian,M.E',
-      word: 'Let Me Help Your Bussiness uhsabdg',
+      name: 'Dr.Hamdi Sopian Hadi ,M.E',
+      word: 'Let Me Help Your Bussiness',
       jobDesk: 'CEO Bussines Consultation Group',
       desk:
           '''Hello, I'm Hamdi Sopian, CEO of Business Consultation Group,I want to help you find business ideas from the knowledge I have learned.''',

@@ -1,99 +1,91 @@
 // import 'package:flutter/material.dart';
-// // import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-// class Test extends StatefulWidget {
+// class TernaryContainerDemo extends StatefulWidget {
+//   const TernaryContainerDemo({super.key});
 //   @override
-//   _TestState createState() => _TestState();
+//   _TernaryContainerDemoState createState() => _TernaryContainerDemoState();
 // }
 
-// class _TestState extends State<Test> {
-//   PageController _pageController = PageController();
-//   int currentIndex = 0;
+// class _TernaryContainerDemoState extends State<TernaryContainerDemo> {
+//   int selectedIndex = -1; // -1 berarti tidak ada tombol yang dipilih
 
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
 //       appBar: AppBar(
-//         title: Text('Swipe with Button Example'),
+//         title: Text('Ternary Operator Demo'),
 //       ),
 //       body: Column(
 //         children: [
-//           Expanded(
-//             child: PageView(
-//               controller: _pageController,
-//               onPageChanged: (index) {
-//                 setState(() {
-//                   currentIndex = index; // Update index saat halaman berubah
-//                 });
-//               },
-//               children: [
-//                 Container(
-//                   color: Colors.blue,
-//                   child: Center(
-//                       child: Text('Page 1',
-//                           style: TextStyle(fontSize: 24, color: Colors.white))),
+//           // Barisan tombol
+//           Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceAround,
+//             children: List.generate(2, (index) {
+//               return ElevatedButton(
+//                 onPressed: () {
+//                   setState(() {
+//                     selectedIndex = index; // Perbarui tombol yang dipilih
+//                   });
+//                 },
+//                 style: ElevatedButton.styleFrom(
+//                   backgroundColor:
+//                       selectedIndex == index ? Colors.black : Colors.white,
+//                   foregroundColor:
+//                       selectedIndex == index ? Colors.white : Colors.black,
 //                 ),
-//                 Container(
-//                   color: Colors.green,
-//                   child: Center(
-//                       child: Text('Page 2',
-//                           style: TextStyle(fontSize: 24, color: Colors.white))),
+//                 child: Text(
+//                   index == 0
+//                       ? 'button 1'
+//                       : index == 1
+//                           ? 'button 2'
+//                           : 'button 3',
 //                 ),
-//                 Container(
+//               );
+//             }),
+//           ),
+//           SizedBox(height: 20),
+//           // Menampilkan container berdasarkan tombol yang dipilih
+//           selectedIndex == 0
+//               ? Container(
+//                   margin: EdgeInsets.all(20),
+//                   height: 100,
 //                   color: Colors.red,
 //                   child: Center(
-//                       child: Text('Page 3',
-//                           style: TextStyle(fontSize: 24, color: Colors.white))),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//             children: [
-//               ElevatedButton(
-//                 onPressed: () {
-//                   _pageController.animateToPage(
-//                     0,
-//                     duration: Duration(milliseconds: 500),
-//                     curve: Curves.easeInOut,
-//                   );
-//                 },
-//                 child: Text('View 1'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: () {
-//                   _pageController.animateToPage(
-//                     1,
-//                     duration: Duration(milliseconds: 500),
-//                     curve: Curves.easeInOut,
-//                   );
-//                 },
-//                 child: Text('View 2'),
-//               ),
-//               ElevatedButton(
-//                 onPressed: () {
-//                   _pageController.animateToPage(
-//                     2,
-//                     duration: Duration(milliseconds: 500),
-//                     curve: Curves.easeInOut,
-//                   );
-//                 },
-//                 child: Text('View 3'),
-//               ),
-//             ],
-//           ),
-//           SizedBox(
-//               height:
-//                   20), // Tambahkan jarak antara tombol dan bagian bawah layar
+//                     child: Text(
+//                       'Container 1',
+//                       style: TextStyle(color: Colors.white, fontSize: 18),
+//                     ),
+//                   ),
+//                 )
+//               : selectedIndex == 1
+//                   ? Container(
+//                       margin: EdgeInsets.all(20),
+//                       height: 100,
+//                       color: Colors.green,
+//                       child: Center(
+//                         child: Text(
+//                           'Container 2',
+//                           style: TextStyle(color: Colors.white, fontSize: 18),
+//                         ),
+//                       ),
+//                     )
+//                   : selectedIndex == 2
+//                       ? Container(
+//                           margin: EdgeInsets.all(20),
+//                           height: 100,
+//                           color: Colors.blue,
+//                           child: Center(
+//                             child: Text(
+//                               'Container 3',
+//                               style:
+//                                   TextStyle(color: Colors.white, fontSize: 18),
+//                             ),
+//                           ),
+//                         )
+//                       : SizedBox
+//                           .shrink(), // Tidak menampilkan apa pun jika tidak ada tombol yang dipilih
 //         ],
 //       ),
 //     );
-//   }
-
-//   @override
-//   void dispose() {
-//     _pageController.dispose();
-//     super.dispose();
 //   }
 // }

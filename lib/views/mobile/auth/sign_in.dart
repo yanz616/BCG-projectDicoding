@@ -29,8 +29,6 @@ class SignInPage extends StatelessWidget {
           ),
         );
       } else {
-        // print(pEmail);
-        // print(pPassword);
         // ignore: use_build_context_synchronously
         CustomSnackbar.showToast(ctx, 'Login Gagal!');
       }
@@ -43,15 +41,21 @@ class SignInPage extends StatelessWidget {
     final TextEditingController passController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.only(
-          top: 120,
-        ),
+      body: SingleChildScrollView(
         child: Column(
-          children: <Widget>[
+          children: [
+            const Gap(120),
             Image.asset(
               'assets/icons/BCG-logo.png',
               width: 80,
+            ),
+            DScriptText(
+              text: 'Bussines Consultation Group',
+              styleForText: StyleForText(
+                medium,
+                12,
+              ),
+              color: orangeColor,
             ),
             const Gap(10),
             WhiteText(
@@ -126,7 +130,6 @@ class SignInPage extends StatelessWidget {
                           emailController.text,
                           passController.text,
                         );
-                        // print('TOmbol Ditekan');
                       },
                       child: WhiteText(
                         text: 'Login',
@@ -140,11 +143,11 @@ class SignInPage extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(),
+            const Gap(100),
             const RouteValidate(
               text: 'Belum Punya Akun?',
               textValidate: 'Register',
-            )
+            ),
           ],
         ),
       ),

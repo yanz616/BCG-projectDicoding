@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_dicoding/layout/layout.dart';
+// import 'package:project_dicoding/test.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/pages/splash.dart';
+// import 'package:project_dicoding/views/mobile/pages/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: primaryColor,
       ),
-      home: const SplashPage(),
+      home: const ResponsiveLayout(),
     );
   }
 }

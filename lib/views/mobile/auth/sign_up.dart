@@ -48,134 +48,138 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   final TextEditingController _userNameController = TextEditingController();
+
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Padding(
-        padding: const EdgeInsets.only(
-          top: 120,
-        ),
-        child: Column(
-          children: <Widget>[
-            Image.asset(
-              'assets/icons/BCG-logo.png',
-              width: 80,
-            ),
-            const Gap(10),
-            WhiteText(
-              text: 'Register',
-              styleForText: StyleForText(
-                semiBold,
-                24,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: 120,
+          ),
+          child: Column(
+            children: <Widget>[
+              Image.asset(
+                'assets/icons/BCG-logo.png',
+                width: 80,
               ),
-            ),
-            const Gap(80),
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30,
+              const Gap(10),
+              WhiteText(
+                text: 'Register',
+                styleForText: StyleForText(
+                  semiBold,
+                  24,
+                ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  WhiteText(
-                    text: 'Username',
-                    styleForText: StyleForText(
-                      medium,
-                      16,
+              const Gap(80),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    WhiteText(
+                      text: 'Username',
+                      styleForText: StyleForText(
+                        medium,
+                        16,
+                      ),
                     ),
-                  ),
-                  const Gap(4),
-                  CustomTextField(
-                    controller: _userNameController,
-                    prefixIcon: const Icon(
-                      Icons.person,
-                      color: primaryColor,
+                    const Gap(4),
+                    CustomTextField(
+                      controller: _userNameController,
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: primaryColor,
+                      ),
+                      hintText: 'Enter Your Name',
+                      hintStyle: StyleForText(
+                        regular,
+                        12,
+                      ),
                     ),
-                    hintText: 'Enter Your Name',
-                    hintStyle: StyleForText(
-                      regular,
-                      12,
+                    const Gap(14),
+                    WhiteText(
+                      text: 'Email Address',
+                      styleForText: StyleForText(
+                        medium,
+                        16,
+                      ),
                     ),
-                  ),
-                  const Gap(14),
-                  WhiteText(
-                    text: 'Email Address',
-                    styleForText: StyleForText(
-                      medium,
-                      16,
+                    const Gap(4),
+                    CustomTextField(
+                      controller: _emailController,
+                      prefixIcon: const Icon(
+                        Icons.email_outlined,
+                        color: primaryColor,
+                      ),
+                      hintText: 'Enter Your Email Address',
+                      hintStyle: StyleForText(regular, 12),
                     ),
-                  ),
-                  const Gap(4),
-                  CustomTextField(
-                    controller: _emailController,
-                    prefixIcon: const Icon(
-                      Icons.email_outlined,
-                      color: primaryColor,
+                    const Gap(14),
+                    WhiteText(
+                      text: 'Password',
+                      styleForText: StyleForText(
+                        medium,
+                        12,
+                      ),
                     ),
-                    hintText: 'Enter Your Email Address',
-                    hintStyle: StyleForText(regular, 12),
-                  ),
-                  const Gap(14),
-                  WhiteText(
-                    text: 'Password',
-                    styleForText: StyleForText(
-                      medium,
-                      12,
+                    const Gap(4),
+                    CustomTextField(
+                      controller: _passController,
+                      obScure: true,
+                      prefixIcon: const Icon(
+                        Icons.key,
+                        color: primaryColor,
+                      ),
+                      hintText: 'Enter Your Password',
+                      hintStyle: StyleForText(
+                        regular,
+                        12,
+                      ),
                     ),
-                  ),
-                  const Gap(4),
-                  CustomTextField(
-                    controller: _passController,
-                    obScure: true,
-                    prefixIcon: const Icon(
-                      Icons.key,
-                      color: primaryColor,
-                    ),
-                    hintText: 'Enter Your Password',
-                    hintStyle: StyleForText(
-                      regular,
-                      12,
-                    ),
-                  ),
-                  const Gap(30),
-                  Container(
-                    height: 40,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: secondColor,
-                    ),
-                    child: TextButton(
-                      onPressed: () {
-                        register(
-                          context,
-                          _userNameController.text,
-                          _emailController.text,
-                          _passController.text,
-                        );
-                      },
-                      child: WhiteText(
-                        text: 'register',
-                        styleForText: StyleForText(
-                          medium,
-                          14.0,
+                    const Gap(30),
+                    Container(
+                      height: 40,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: secondColor,
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          register(
+                            context,
+                            _userNameController.text,
+                            _emailController.text,
+                            _passController.text,
+                          );
+                        },
+                        child: WhiteText(
+                          text: 'register',
+                          styleForText: StyleForText(
+                            medium,
+                            14.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const Spacer(),
-            const RouteValidate(
-              text: 'Sudah Punya Akun?',
-              textValidate: 'Login',
-            ),
-          ],
+              // const Spacer(),
+              const Gap(60),
+              const RouteValidate(
+                text: 'Sudah Punya Akun?',
+                textValidate: 'Login',
+              ),
+            ],
+          ),
         ),
       ),
     );
