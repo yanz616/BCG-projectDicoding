@@ -4,11 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/auth/sign_in.dart';
 import 'package:project_dicoding/views/mobile/widgets/button.dart';
 import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
 import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
-// import 'package:project_dicoding/shared/date_time.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -18,6 +16,11 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final TextEditingController _userNameController = TextEditingController();
+
+  final TextEditingController _emailController = TextEditingController();
+
+  final TextEditingController _passController = TextEditingController();
   void register(
     BuildContext ctx,
     String nama,
@@ -34,24 +37,24 @@ class _SignUpPageState extends State<SignUpPage> {
         SharedPreUtils.saveTanggalGabung(
             DateFormat('dd-MM-yyyy').format(DateTime.now()));
 
-        CustomSnackbar.showToast(ctx, 'Berhasil simpan!,');
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const SignInPage(),
-          ),
-        );
+        CustomSnackbar.showToast(ctx, 'Register Succes!');
+
+        _userNameController.clear();
+        _emailController.clear();
+        _passController.clear();
       } else {
         CustomSnackbar.showToast(ctx, 'You should make this form full');
       }
     }
   }
 
-  final TextEditingController _userNameController = TextEditingController();
-
-  final TextEditingController _emailController = TextEditingController();
-
-  final TextEditingController _passController = TextEditingController();
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -149,7 +152,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: secondColor,
+                        color: youngGreen,
                       ),
                       child: TextButton(
                         onPressed: () {

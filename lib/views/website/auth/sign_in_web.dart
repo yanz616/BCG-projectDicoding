@@ -17,6 +17,9 @@ class WebSignInPage extends StatefulWidget {
 }
 
 class _WebSignInPageState extends State<WebSignInPage> {
+  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
   void login(BuildContext ctx, String email, String pass) async {
     if (email.isEmpty && pass.isEmpty) {
       CustomSnackbar.showToast(ctx, 'Inputan masih kosong!');
@@ -38,6 +41,9 @@ class _WebSignInPageState extends State<WebSignInPage> {
         // print(pPassword);
         // ignore: use_build_context_synchronously
         CustomSnackbar.showToast(ctx, 'Login Gagal!');
+
+        _emailController.clear();
+        _passController.clear();
       }
     }
   }
@@ -58,7 +64,10 @@ class _WebSignInPageState extends State<WebSignInPage> {
         SharedPreUtils.saveTanggalGabung(
             DateFormat('dd-MM-yyyy').format(DateTime.now()));
 
-        CustomSnackbar.showToast(ctx, 'Berhasil simpan!,');
+        CustomSnackbar.showToast(ctx, 'Register Succes!,');
+        _userNameController.clear();
+        _emailController.clear();
+        _passController.clear();
       } else {
         CustomSnackbar.showToast(ctx, 'You should make this form full');
       }
@@ -66,13 +75,16 @@ class _WebSignInPageState extends State<WebSignInPage> {
   }
 
   int selectedIndex = 0;
+  @override
+  void dispose() {
+    _userNameController.dispose();
+    _emailController.dispose();
+    _passController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController userNameController = TextEditingController();
-    final TextEditingController emailController = TextEditingController();
-    final TextEditingController passController = TextEditingController();
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -109,7 +121,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                       constraints: const BoxConstraints(maxWidth: 180),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: secondColor,
+                        color: youngGreen,
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Row(
@@ -155,7 +167,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                               ),
                               const Gap(4),
                               CustomTextField(
-                                controller: emailController,
+                                controller: _emailController,
                                 prefixIcon: const Icon(
                                   Icons.email_outlined,
                                   color: primaryColor,
@@ -176,7 +188,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                               ),
                               const Gap(4),
                               CustomTextField(
-                                controller: passController,
+                                controller: _passController,
                                 obScure: true,
                                 prefixIcon: const Icon(
                                   Icons.key,
@@ -194,14 +206,14 @@ class _WebSignInPageState extends State<WebSignInPage> {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
-                                  color: secondColor,
+                                  color: youngGreen,
                                 ),
                                 child: TextButton(
                                   onPressed: () {
                                     login(
                                       context,
-                                      emailController.text,
-                                      passController.text,
+                                      _emailController.text,
+                                      _passController.text,
                                     );
                                   },
                                   child: WhiteText(
@@ -227,7 +239,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                               ),
                               const Gap(4),
                               CustomTextField(
-                                controller: userNameController,
+                                controller: _userNameController,
                                 prefixIcon: const Icon(
                                   Icons.person,
                                   color: primaryColor,
@@ -248,7 +260,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                               ),
                               const Gap(4),
                               CustomTextField(
-                                controller: emailController,
+                                controller: _emailController,
                                 prefixIcon: const Icon(
                                   Icons.email_outlined,
                                   color: primaryColor,
@@ -266,7 +278,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
                               ),
                               const Gap(4),
                               CustomTextField(
-                                controller: passController,
+                                controller: _passController,
                                 obScure: true,
                                 prefixIcon: const Icon(
                                   Icons.key,
@@ -284,15 +296,15 @@ class _WebSignInPageState extends State<WebSignInPage> {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
-                                  color: secondColor,
+                                  color: youngGreen,
                                 ),
                                 child: TextButton(
                                   onPressed: () {
                                     register(
                                       context,
-                                      userNameController.text,
-                                      emailController.text,
-                                      passController.text,
+                                      _userNameController.text,
+                                      _emailController.text,
+                                      _passController.text,
                                     );
                                   },
                                   child: WhiteText(

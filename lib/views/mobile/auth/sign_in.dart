@@ -121,7 +121,7 @@ class SignInPage extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: secondColor,
+                      color: youngGreen,
                     ),
                     child: TextButton(
                       onPressed: () {

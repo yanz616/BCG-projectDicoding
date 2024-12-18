@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Gap(60),
+            const Gap(20),
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
@@ -148,7 +148,7 @@ class BannerSlider extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.3),
+                    color: Colors.black.withAlpha(90),
                     spreadRadius: 3,
                     blurRadius: 6,
                     offset: const Offset(6, 4),
@@ -263,7 +263,7 @@ class DaftarConsultan extends StatelessWidget {
                   color: whiteColor,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withAlpha(90),
                       spreadRadius: 3,
                       blurRadius: 6,
                       offset: const Offset(6, 4),

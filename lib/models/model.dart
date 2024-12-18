@@ -80,7 +80,8 @@ a company that operates in the business sector with the aim of helping business 
       name: 'Layla,M.Kom',
       word: 'Let Me Help Your Bussiness',
       jobDesk: 'Design departement Manager',
-      desk: '',
+      desk:
+          '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum''',
       company: Company(
         img: 'assets/images/BCG-example.jpg',
         detail: '''
@@ -92,7 +93,8 @@ a company that operates in the business sector with the aim of helping business 
       name: 'Nurrajaby,M.T',
       word: 'Let Me Help Your Bussiness',
       jobDesk: 'Programmer Section Manager',
-      desk: '',
+      desk:
+          '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum''',
       company: Company(
         img: 'assets/images/BCG-example.jpg',
         detail: '''
@@ -104,7 +106,8 @@ a company that operates in the business sector with the aim of helping business 
       name: 'Raiden Miya,M.E',
       word: 'Let Me Help Your Bussiness',
       jobDesk: 'Owner Game Store',
-      desk: '',
+      desk:
+          '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum''',
       company: Company(
         img: 'assets/images/BCG-example.jpg',
         detail: '''
@@ -116,7 +119,8 @@ a company that operates in the business sector with the aim of helping business 
       name: 'Nanda,S.Kom',
       word: 'Let Me Help Your Bussiness',
       jobDesk: 'Owner Coffe shop',
-      desk: '',
+      desk:
+          '''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum''',
       company: Company(
         img: 'assets/images/BCG-example.jpg',
         detail: '''

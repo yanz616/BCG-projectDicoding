@@ -12,11 +12,18 @@ class ResponsiveLayout extends StatelessWidget {
       double deviceWidth = constraints.maxWidth;
       // double deviceHeight = constraints.maxHeight;
 
-      if (deviceWidth >= 500) {
-        return const WebSignInPage();
-      } else {
+      if (deviceWidth <= 600) {
         return const SignInPage();
+      } else {
+        return const WebSignInPage();
+        
       }
+
+      // if (deviceWidth >= 700) {
+      //   return const WebSignInPage();
+      // } else {
+      //   return const TestL();
+      // }
     });
   }
 }
