@@ -127,5 +127,16 @@ a company that operates in the business sector with the aim of helping business 
 a company that operates in the business sector with the aim of helping business people find new ideas about business''',
       ),
     ),
+    ItemData(
+      image: 'assets/images/image-5.png',
+      name: 'Ardian,M.T',
+      word: 'Let Me Help Your Bussiness',
+      jobDesk: 'Leader Debate Organization',
+      desk: '',
+      company: Company(
+        img: 'assets/images/BCG-example.jpg',
+        detail: '',
+      ),
+    ),
   ];
 }

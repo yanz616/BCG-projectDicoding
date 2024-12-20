@@ -17,10 +17,6 @@ class ProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Container(
-        // constraints: BoxConstraints(
-        //   minWidth: 800,
-        //   minHeight: 500,
-        // ),
         width: 800,
         height: 500,
         decoration: BoxDecoration(
