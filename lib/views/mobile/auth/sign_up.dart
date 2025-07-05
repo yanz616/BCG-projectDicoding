@@ -4,9 +4,9 @@ import 'package:intl/intl.dart';
 import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/widgets/button.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
+import 'package:project_dicoding/widgets/button.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text_field.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

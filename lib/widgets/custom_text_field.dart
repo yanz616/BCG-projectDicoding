@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
 
 class CustomTextField extends StatelessWidget {
   final bool obScure;

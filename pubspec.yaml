@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^4.0.4
   gap: ^3.0.1
-  get: ^4.6.6
   smooth_page_indicator:  ^1.0.0
   font_awesome_flutter: ^10.7.0
   carousel_slider: ^5.0.0

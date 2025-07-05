@@ -6,8 +6,8 @@ import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/pages/detail_page.dart';
 import 'package:project_dicoding/views/mobile/pages/profile_page.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text_field.dart';
 
 class Home extends StatefulWidget {
   const Home({

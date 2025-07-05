@@ -5,9 +5,9 @@ import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
 import 'package:project_dicoding/views/mobile/pages/home.dart';
-import 'package:project_dicoding/views/mobile/widgets/button.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
+import 'package:project_dicoding/widgets/button.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text_field.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});

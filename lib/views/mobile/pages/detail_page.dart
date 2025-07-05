@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
 import 'package:widget_zoom/widget_zoom.dart';
 // import 'package:project_dicoding/views/mobile/widgets/button.dart';
 

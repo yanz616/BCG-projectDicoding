@@ -4,9 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:project_dicoding/shared/shared_preferences.dart';
 import 'package:project_dicoding/shared/snackbar.dart';
 import 'package:project_dicoding/theme/theme.dart';
-
-import 'package:project_dicoding/views/mobile/widgets/custom_text.dart';
-import 'package:project_dicoding/views/mobile/widgets/custom_text_field.dart';
+import 'package:project_dicoding/widgets/custom_text.dart';
+import 'package:project_dicoding/widgets/custom_text_field.dart';
 import 'package:project_dicoding/views/website/pages/home_web.dart';
 
 class WebSignInPage extends StatefulWidget {
@@ -68,6 +67,7 @@ class _WebSignInPageState extends State<WebSignInPage> {
         _userNameController.clear();
         _emailController.clear();
         _passController.clear();
+        selectedIndex = 0;
       } else {
         CustomSnackbar.showToast(ctx, 'You should make this form full');
       }

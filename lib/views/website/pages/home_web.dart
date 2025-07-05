@@ -88,7 +88,7 @@ class _HomeWebState extends State<HomeWeb> {
             selectedIndex == 0
                 ? Flexible(
                     child: Container(
-                      width: 1000,
+                      width: 800,
                       height: 500,
                       decoration: BoxDecoration(
                         color: whiteColor,
@@ -97,7 +97,7 @@ class _HomeWebState extends State<HomeWeb> {
                       child: LayoutBuilder(
                         builder: (context, constraints) {
                           double width = constraints.maxWidth;
-                          print(width);
+                          // print(width);
                           if (width <= 600) {
                             return const ConsultantList();
                           } else {
@@ -107,7 +107,7 @@ class _HomeWebState extends State<HomeWeb> {
                       ),
                     ),
                   )
-                : ProfileWidget(
+                : ProfileWeb(
                     username: userName,
                     email: email,
                     tglGabung: tglGabung,
