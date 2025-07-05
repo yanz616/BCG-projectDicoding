@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_dicoding/layout/layout.dart';
 import 'package:project_dicoding/theme/theme.dart';
-import 'package:project_dicoding/views/website/pages/home_web.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: primaryColor,
       ),
-      home: const HomeWeb(),
+      home: const ResponsiveLayout(),
     );
   }
 }
